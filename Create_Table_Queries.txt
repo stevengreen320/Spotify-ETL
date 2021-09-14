@@ -23,7 +23,7 @@ CREATE TABLE "country"(
 
 CREATE TABLE "Top_200" (
     "rank" int   NOT NULL,
-    "title" varchar(50)   NOT NULL,
+    "title" varchar(200)   NOT NULL,
     "artist_id" int   NOT NULL,
     "streams" int   NOT NULL,
     "country_id" int   NOT NULL,
@@ -33,7 +33,7 @@ CREATE TABLE "Top_200" (
 
 CREATE TABLE "Viral_50" (
     "rank" int   NOT NULL,
-    "title" varchar(50)   NOT NULL,
+    "title" varchar(200)   NOT NULL,
     "artist_id" int   NOT NULL,
     "country_id" int   NOT NULL,
     "date" date   NOT NULL,
