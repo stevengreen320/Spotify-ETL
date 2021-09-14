@@ -1,0 +1,53 @@
+DROP TABLE IF EXISTS "Top_200";
+DROP TABLE IF EXISTS "Viral_50";
+DROP TABLE IF EXISTS "artist";
+DROP TABLE IF EXISTS "country";
+
+CREATE TABLE "artist" (
+    "artist_id" serial   NOT NULL,
+    "artist" varchar(200)   NOT NULL,
+    "last_updated" timestamp   NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT "pk_artist" PRIMARY KEY (
+        "artist_id"
+     )
+);
+
+CREATE TABLE "country"(
+    "country_id" serial   NOT NULL,
+    "country" varchar(50)   NOT NULL,
+    "last_updated" timestamp   NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT "pk_country" PRIMARY KEY (
+        "country_id"
+     )
+);
+
+CREATE TABLE "Top_200" (
+    "rank" int   NOT NULL,
+    "title" varchar(50)   NOT NULL,
+    "artist_id" int   NOT NULL,
+    "streams" int   NOT NULL,
+    "country_id" int   NOT NULL,
+    "date" date   NOT NULL,
+    "last_updated" timestamp   NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE "Viral_50" (
+    "rank" int   NOT NULL,
+    "title" varchar(50)   NOT NULL,
+    "artist_id" int   NOT NULL,
+    "country_id" int   NOT NULL,
+    "date" date   NOT NULL,
+    "last_updated" timestamp   NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+ALTER TABLE "Top_200" ADD CONSTRAINT "fk_Top_200_artist_id" FOREIGN KEY("artist_id")
+REFERENCES "artist" ("artist_id");
+
+ALTER TABLE "Top_200" ADD CONSTRAINT "fk_Top_200_country_id" FOREIGN KEY("country_id")
+REFERENCES "country" ("country_id");
+
+ALTER TABLE "Viral_50" ADD CONSTRAINT "fk_Viral_50_artist_id" FOREIGN KEY("artist_id")
+REFERENCES "artist" ("artist_id");
+
+ALTER TABLE "Viral_50" ADD CONSTRAINT "fk_Viral_50_country_id" FOREIGN KEY("country_id")
+REFERENCES "country" ("country_id");
