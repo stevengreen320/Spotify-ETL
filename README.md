@@ -1,2 +1,3 @@
 # Spotify ETL
 
+For this project we extracted data from the webpages of two Spotfiy charts, those being the Top 200 and the Viral 50. We wanted to analyze the most streamed artist and song by country and worldwide. We also wanted to examine which top 50 country list would most resemble the worldwide list. Spotify webpage Python's Beautiful Soup. We then took that data and transformed it into a dataframe using the Pandas library. After that, we analysed the data using PostGreSql and then loaded the analyzed data into the Google Cloud. We used the tools Python, Jupyter Notebooks, QuickDBD, PostGrreSQL and Google Cloud. 
